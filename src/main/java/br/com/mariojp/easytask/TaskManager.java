@@ -20,16 +20,22 @@ public class TaskManager {
     	return tasks;
     }
     
-    public void complete(Task task) {
-    	tasks.get(tasks.indexOf(task)).complete();
+    public void complete(String name) {
+    	tasks.forEach(task -> {
+    		if(task.compareName(name))
+    			task.complete();
+    	});
+    }
+    
+    public void edit(String name,String newName) {
+    	tasks.forEach(task -> {
+    		if(task.compareName(name))
+    			task.setName(newName);
+    	});
     }
 	
     
     public void remove(String name) {
     	tasks.removeIf(task -> task.getName().equals(name));
-    }
-    
-    public void remove(Task task) {
-    	remove(task.getName());
     }
 }

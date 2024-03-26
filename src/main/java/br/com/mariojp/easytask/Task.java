@@ -11,6 +11,10 @@ public class Task {
 		this.isComplete = false;
 	}
 
+	public boolean compareName(String name) {
+		return this.name.equals(name);
+	}
+
 	public String getName() {
 		return name;
 	}
